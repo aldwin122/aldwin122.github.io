@@ -1,0 +1,8 @@
+/* ── Smooth progress bar animation on parent dashboard ──── */
+@keyframes barGrow {
+  from { width: 0; }
+}
+.grade-progress-bar { animation: barGrow .7s ease both; }
+
+/* ============================================================
+   PARENT PORTAL — Elderly-Friendly Button Styles

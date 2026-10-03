@@ -1,0 +1,454 @@
+/* ── Smooth progress bar animation on parent dashboard ──── */
+@keyframes barGrow {
+  from { width: 0; }
+}
+.grade-progress-bar { animation: barGrow .7s ease both; }
+
+/* ============================================================
+   DASHBOARD DESIGN SYSTEM (Teacher + Parent)
+   Shared card grid, headers, stat layout, and content panels
+   ============================================================ */
+
+.dash { animation: none; }
+
+.content-wrap .row.dash-grid {
+  --bs-gutter-x: 1.25rem;
+  --bs-gutter-y: 1.25rem;
+}
+
+.content-wrap .row.dash-grid.mb-section {
+  margin-bottom: 1.25rem;
+}
+
+.card-panel.mb-0 { margin-bottom: 0 !important; }
+
+.card-panel-header--wrap { flex-wrap: wrap; }
+
+.card-panel-actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.card-panel-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.card-panel-hint {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.card-panel-title .title-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.card-panel-title .title-icon.title-icon--danger {
+  background: #FEE2E2;
+  color: var(--danger);
+}
+
+.dash-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.dash-chip--warn {
+  background: #FEF3C7;
+  color: #B45309;
+}
+
+.donut-wrap {
+  position: relative;
+  width: 172px;
+  height: 172px;
+  flex-shrink: 0;
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  gap: 3px;
+}
+
+.donut-center .donut-val {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.donut-center .donut-lbl {
+  font-size: 0.6rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.card-panel-body--stack-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem var(--card-pad-x);
+}
+
+.dist-legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.card-panel-body--compact {
+  padding: 0.6rem 0.8rem;
+}
+
+.stat-card--d0 { animation-delay: 0s; }
+.stat-card--d1 { animation-delay: 0.06s; }
+.stat-card--d2 { animation-delay: 0.12s; }
+.stat-card--d3 { animation-delay: 0.18s; }
+
+.dash-more-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+
+/* Parent / teacher: child summary strip (one row per linked student) */
+.dash-child-strip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-5) var(--card-pad-x);
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.dash-child-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: #EEF0FD;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  letter-spacing: -0.02em;
+}
+
+.dash-child-main {
+  flex: 1;
+  min-width: 160px;
+}
+
+.dash-child-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.dash-child-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.18rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.85rem;
+}
+
+.dash-avg-block {
+  flex-shrink: 0;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  min-width: 130px;
+  border: 1px solid;
+}
+
+.dash-avg-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.2rem;
+  opacity: 0.75;
+}
+
+.dash-avg-num {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dash-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.18rem 0.6rem;
+  border-radius: 20px;
+  margin-top: 0.3rem;
+}
+
+a.dash-print-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid #C7D2FE;
+  border-radius: var(--radius-sm);
+  background: #EEF2FF;
+  transition: background 0.15s;
+  min-height: var(--control-h-sm);
+}
+
+a.dash-print-link:hover {
+  background: #E0E7FF;
+  color: var(--primary-dark);
+}
+
+.dash-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 991px) {
+  .dash-two-col { grid-template-columns: 1fr; }
+}
+
+.dash-filter-bar {
+  padding: 0.5rem var(--card-pad-x);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  background: #fff;
+}
+
+.dash-ftab {
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid;
+  transition: background 0.12s, color 0.12s;
+  background: #fff;
+}
+
+.dash-grade-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dash-grade-table thead th {
+  padding: 0.45rem 1rem;
+  font-size: 0.63rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94A3B8;
+  background: #FAFBFD;
+  border-bottom: 1px solid var(--border);
+}
+
+.dash-grade-table thead th:nth-child(2) { text-align: center; }
+
+.dash-grade-table tbody td {
+  border-bottom: 1px solid #F4F6FB;
+  vertical-align: middle;
+}
+
+.dash-subject-row {
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.dash-subject-row:hover { background: #F8FAFF !important; }
+
+.dash-subject-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 0.72rem 1rem;
+}
+
+.dash-grade-num {
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.72rem 0.6rem;
+}
+
+.dash-status-cell { padding: 0.72rem 0.6rem; }
+
+.badge.badge-status {
+  gap: 0.28rem;
+}
+
+.badge-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dash-expand-cell {
+  padding: 0.72rem 0.5rem;
+  text-align: center;
+  width: 28px;
+}
+
+.dash-detail-row { background: #FAFBFD; }
+
+.dash-detail-row td {
+  padding: 0.8rem 1rem 1rem;
+}
+
+.dash-q-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+  margin-bottom: 0.65rem;
+}
+
+.dash-q-badge {
+  font-size: 0.71rem;
+  font-weight: 600;
+  padding: 0.12rem 0.45rem;
+  border-radius: 6px;
+}
+
+.dash-progress-wrap {
+  position: relative;
+  background: #EEF1F7;
+  border-radius: 20px;
+  height: 6px;
+  overflow: visible;
+  margin-bottom: 1rem;
+}
+
+.dash-progress-bar {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.4s;
+}
+
+.dash-pass-marker {
+  position: absolute;
+  left: 75%;
+  top: -4px;
+  width: 1.5px;
+  height: 14px;
+  background: #94A3B8;
+  border-radius: 2px;
+}
+
+.dash-pass-label {
+  position: absolute;
+  left: 75%;
+  top: 13px;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  color: #94A3B8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dash-detail-note {
+  font-size: 0.79rem;
+  font-weight: 600;
+}
+
+.dash-info-box {
+  padding: 0.45rem 0.85rem;
+  background: #FAFBFD;
+  border: 1px solid #EEF1F7;
+  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.dash-chart-legend {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.dash-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.dash-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.badge.badge-xs {
+  font-size: 0.58rem;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.45rem;
+}
+
+.dash-empty--success i {
+  color: var(--success);
+  font-size: 2rem;
+}
+
+/* ============================================================
+   PARENT PORTAL — Elderly-Friendly Button Styles
